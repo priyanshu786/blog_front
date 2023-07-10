@@ -1,0 +1,12 @@
+<mat-toolbar color="primary" class="app-header">
+    <div><a routerLink="home" style="color:white;" class="positronx">Blog App</a></div>
+    <div class="spacer"></div>
+    <span class="nav-tool-items" *ngIf="!userFlag">
+      <a mat-button routerLink="login" routerLinkActive="active">Log in</a>
+      <a class="linkButton" mat-button mat-raised-button routerLink="register" routerLinkActive="active">Register</a>
+    </span>
+    <span class="nav-tool-items" *ngIf="userFlag">
+      <a  class="linkButton" mat-button routerLink="logout">Log out</a>
+     
+    </span>
+  </mat-toolbar>
