@@ -1,11 +1,16 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  url="http://localhost:9595"
-  constructor() { }
+  url="http://localhost:8081"
+  constructor(private http:HttpClient) { }
+
+  generateToken(credentials:any){
+    return this.http.post(`${this.url}/user/authenticate`,credentials)
+  }
   LoginUser(token: string){
     localStorage.setItem("token",token)
     return true;

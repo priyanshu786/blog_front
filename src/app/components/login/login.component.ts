@@ -21,9 +21,10 @@ export class LoginComponent implements OnInit {
     if((this.credentials.username!='' && this.credentials.password!='')&&((this.credentials.username!=null && this.credentials.password!=null)))
     {
       this.loginService.generateToken(this.credentials).subscribe(
-        response=>{
-            console.log(response.json);
-            // this.loginService.LoginUser(response)
+        (response:any)=>{
+            console.log(response.jwt);
+            this.loginService.LoginUser(response.jwt)
+            window.location.href="/dashboard"
         },
         error=>{
           console.log(error);

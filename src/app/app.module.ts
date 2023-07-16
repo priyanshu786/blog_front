@@ -14,7 +14,8 @@ import { HomeComponent } from './components/home/home.component';
 import {MatFormFieldModule} from "@angular/material/form-field"
 import {FormsModule} from "@angular/forms"
 import {MatInputModule} from "@angular/material/input"
-
+import {HttpClientModule} from "@angular/common/http";
+import { DashboardComponent } from './components/dashboard/dashboard.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import {MatInputModule} from "@angular/material/input"
     LoginComponent,
     LogoutComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,8 @@ import {MatInputModule} from "@angular/material/input"
     MatButtonModule,
     MatFormFieldModule,
     FormsModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
