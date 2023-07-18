@@ -1,0 +1,10 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <ul><li *ngFor="let blog of blogs">
+            {{blog.topic}}
+            {{blog.content}}
+
+        </li></ul>
+        <button (click)="getBlogs()">blogs</button>
+    </div>
+</div>

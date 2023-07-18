@@ -14,8 +14,13 @@ import { HomeComponent } from './components/home/home.component';
 import {MatFormFieldModule} from "@angular/material/form-field"
 import {FormsModule} from "@angular/forms"
 import {MatInputModule} from "@angular/material/input"
-import {HttpClientModule} from "@angular/common/http";
-import { DashboardComponent } from './components/dashboard/dashboard.component'
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { BlogListComponent } from './components/blog-list/blog-list.component'
+import { MatCardModule } from '@angular/material/card';
+import { LoginService } from './services/login.service';
+import { AuthGuard } from './services/auth.guard';
+import { AuthInterceptor } from './services/auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +29,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component'
     LogoutComponent,
     RegisterComponent,
     HomeComponent,
-    DashboardComponent
+    DashboardComponent,
+    BlogListComponent
   ],
   imports: [
     BrowserModule,
@@ -35,9 +41,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component'
     MatFormFieldModule,
     FormsModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule
   ],
-  providers: [],
+  providers: [LoginService,AuthGuard,[{provide:HTTP_INTERCEPTORS,useClass: AuthInterceptor,multi:true}]],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

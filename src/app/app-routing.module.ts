@@ -7,6 +7,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthGuard } from './services/auth.guard';
+import { BlogListComponent } from './components/blog-list/blog-list.component';
 
 const routes: Routes = [
   {path: '', pathMatch:'full',redirectTo: 'home'},
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'logout',component:LogoutComponent},
   {path:'home',component:HomeComponent},
-  {path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard]}
+  {path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard]},
+  {path:'blog-list',component:BlogListComponent}
 
 ];
 

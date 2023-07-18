@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
         (response:any)=>{
             console.log(response.jwt);
             this.loginService.LoginUser(response.jwt)
-            window.location.href="/dashboard"
+            window.location.href="/blog-list"
         },
         error=>{
           console.log(error);
