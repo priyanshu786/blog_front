@@ -1,10 +1,39 @@
-<div class="bootstrap-wrapper">
-    <div class="container">
-        <ul><li *ngFor="let blog of blogs">
-            {{blog.topic}}
-            {{blog.content}}
+<div class="blog-filter">
+    <form action="" >
+        <mat-form-field class="blog-filter-items">
+            <mat-label>Category</mat-label>
+            <input 
+            [(ngModel)]="filterParam.category" 
+            name="category" required type="text" matInput>
 
-        </li></ul>
-        <button (click)="getBlogs()">blogs</button>
-    </div>
+        </mat-form-field>
+        <mat-form-field class="blog-filter-items">
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+              <input matStartDate [(ngModel)]="filterParam.DateFrom" 
+              name="Start date" placeholder="Start date">
+              <input matEndDate [(ngModel)]="filterParam.DateTo" 
+              name="End date" placeholder="End date">
+            </mat-date-range-input>
+            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+            
+          </mat-form-field>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+          
+    </form>
+    <button class="blog-filter-items" mat-raised-button (click)="filterBlogs()">search</button>
+</div>
+<div class="container">
+    <mat-grid-list cols="3" gutterSize="2em">
+        <mat-grid-tile *ngFor="let blog of blogs">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>{{blog.topic}}</mat-card-title>
+                    <mat-card-subtitle>{{blog.author}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>{{blog.content|slice:0:150}}...</mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
 </div>

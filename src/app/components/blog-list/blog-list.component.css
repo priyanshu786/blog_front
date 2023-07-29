@@ -1,0 +1,33 @@
+.blog-filter{
+    display:flex;
+    width:100%;
+    margin:auto;
+    justify-content: center;
+}
+.blog-filter-items{
+    margin:20px;
+}
+mat-grid-list{
+    width:80%;
+    margin: 0 auto;
+}
+
+mat-card{
+    height:100%;
+    display:flex;
+    background-color: aliceblue;
+    padding: 30px;;
+    flex-direction: column;
+
+}
+mat-card-header{
+    display:flex;
+    flex-direction: column;
+    flex:40%;
+    padding-top: 5%;
+}
+mat-card-content{
+    margin-top: 5px;
+    /* line-height: 30px; */
+    flex:40%;
+}
