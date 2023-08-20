@@ -1,34 +1,30 @@
-<div class="bootstrap-wrapper">
-    <div class="container mt">
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <h1 class="text-center">Login here!</h1>
-                <form (ngSubmit)="onSubmit()" class="text-center" >
-                    <mat-form-field class="full-width" >
+<div class="login-page">
+                <h1 class="text-center">Login to proceed!</h1>
+                <div class="input">
+                <form (ngSubmit)="onSubmit()"  #loginForm="ngForm"  class="text-center" >
+                    <mat-form-field class="quarter-width" >
                         <mat-label>Username</mat-label>
-                        
                         <input 
                         [(ngModel)]="credentials.username" 
                         name="username" required type="text" matInput>
 
                     </mat-form-field><br>
                     
-                    <mat-form-field class="full-width" >
+                    <mat-form-field class="quarter-width" >
                        <mat-label>Password</mat-label>
                        <input 
                        [(ngModel)]="credentials.password"
                        name="password"
                         required type="password" matInput>
-
+                        
                    </mat-form-field>
-                   <div class="container text-center" >
+                   <div class="buttons">
+                   
                        <button type="submit" mat-raised-button color="primary">Login</button>
-                   </div>
-                   <div class="container text-center">
-                       <button type="submit" mat-raised-button color="accent">Reset</button>
-                   </div>
+                       <button type="button" mat-raised-button color="accent" (click)="resetForm(loginForm)">Reset</button>
+                </div>
                 </form>
-                {{credentials|json}}
             </div>
-        </div>
-    </div>
+</div>
+         
+      

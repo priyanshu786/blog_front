@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -15,6 +16,10 @@ export class LoginComponent implements OnInit {
   constructor(private loginService:LoginService) { }
 
   ngOnInit(): void {
+  }
+  resetForm(form: NgForm) {
+    form.resetForm(); 
+    this.credentials = { username: '', password: '' }; 
   }
   onSubmit(){
     console.log("form is submitted");
@@ -35,3 +40,4 @@ export class LoginComponent implements OnInit {
     else{console.log("empty credentials")}
   }
 }
+

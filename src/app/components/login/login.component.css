@@ -1,3 +1,13 @@
-.full-width{
+.quarter-width{
     width:25%;
+}
+.login-page{
+    background: linear-gradient(45deg, rgb(54, 54, 54), white,rgb(54, 54, 54));
+    padding-top: 20vh;
+    height :100%;;
+}
+.buttons{
+    display:flex;
+    gap: 10px;
+    justify-content: center;
 }

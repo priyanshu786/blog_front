@@ -1,0 +1,11 @@
+
+.welcome-message{
+    height:100%;
+    text-align: center;
+    padding-top: 20vh;
+    background: linear-gradient(45deg, rgb(54, 54, 54), white,rgb(54, 54, 54));
+}
+h1{
+    font-size: xx-large;
+}
+ 

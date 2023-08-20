@@ -1,11 +1,15 @@
-<mat-toolbar color="primary" class="app-header">
-    <div><a routerLink="home" style="color:white;" class="positronx">Blog App</a></div>
+<mat-toolbar  class="app-header">
+  <span class="nav-tool-items">
+    <a  mat-button routerLink="home" routerLinkActive="active">HOME</a>
+  </span>
     <div class="spacer"></div>
     <span class="nav-tool-items">
-      <a *ngIf="!loggedIn" mat-button routerLink="login" routerLinkActive="active">Log in</a>
+      <a *ngIf="!loggedIn && routeEnding!=='login'" mat-button routerLink="login" routerLinkActive="active">Login</a>
     </span>
     <span class="nav-tool-items" >
-      <a *ngIf="loggedIn"(click)="logoutUser()" mat-icon-button >Log out</a>
-     
+      <a *ngIf="loggedIn && routeEnding!=='blog-list' "routerLink="blog-list" mat-icon-button >Blogs</a>
+    </span>
+    <span class="nav-tool-items" >
+      <a *ngIf="loggedIn"(click)="logoutUser()" mat-icon-button >Logout</a>
     </span>
   </mat-toolbar>
